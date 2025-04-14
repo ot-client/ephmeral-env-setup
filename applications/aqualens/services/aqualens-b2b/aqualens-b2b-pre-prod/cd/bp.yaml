@@ -1,0 +1,28 @@
+kind: BPServiceCD
+metadata:
+  application: aqualens
+  environment_master: staging
+  service: aqualens-b2b
+spec:
+  application_env: pre-prod
+  deployment_name: aqualens-b2b-autoscale
+  deployment_rollback_validation: true
+  env_cd_deploy_variable:
+  - env_key: image.tag
+    env_value: ${BP_IMAGE_TAG}
+  - env_key: APM_NAME
+    env_value: aqualens-b2b-preprod-eks
+  manifest_meta_data:
+    helm_file_paths:
+    - aqualens/aqualens-b2b/
+    helm_git_repo: helm-chartsyhryn
+    helm_git_repo_branch: site24_php
+    helm_release_name: aqualens-b2b
+    helm_value_repo: helm-chartsyhryn
+    helm_value_repo_branch: site24_php
+    strategy: HELM_GIT_VALUES_FILE
+    value_file_paths:
+    - aqualens/aqualens-b2b/values-preprod-eks.yaml
+  service_name: aqualens-b2b
+  image_name: aqualens-b2b-stage
+version: api/v1

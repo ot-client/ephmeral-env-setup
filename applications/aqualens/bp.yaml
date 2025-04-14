@@ -1,0 +1,17 @@
+kind: BPApplication
+metadata:
+  name: aqualens
+spec:
+  default_policy: 1
+  description: aqualens service
+  policy_template: Default-policy-template
+  project_cluster:
+  - cluster: preprod-eks-1-30
+    dedicated: true
+  - cluster: prod-eks-common-1-30
+    dedicated: true
+  - cluster: preprod-mumbai
+    dedicated: true
+  - cluster: lk-dev-mum-eks-1-30
+    dedicated: true
+version: api/v1
