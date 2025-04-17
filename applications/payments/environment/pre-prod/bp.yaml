@@ -1,0 +1,14 @@
+kind: BPApplicationEnv
+metadata:
+  name: pre-prod
+spec:
+  application: aqualens
+  cluster: preprod-eks-1-30
+  environment_master: staging
+  manual_build: true
+  manual_deploy: true
+  namespace: aqualens
+  registries:
+  - nexus
+  vm_groups: []
+version: api/v1
