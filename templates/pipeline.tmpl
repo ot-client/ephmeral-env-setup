@@ -1,0 +1,66 @@
+kind: BPPipeline
+metadata:
+  name: preprod_build_and_deploy
+spec:
+  retention_execution_count: 30000
+  cron_regex:
+  default_run: true
+  pipeline_context_parameters: {}
+  jira_references: []
+  stages:
+  - approval: false
+    continue_on_disapproval: false
+    name: build
+    order: 1
+    send_mail: true
+    tasks:
+    - application_env: pre-prod
+      job_code: null
+      mark_success_upon_skip: false
+      name: job_1
+      on_failure_exit: true
+      on_success_exit: false
+      order: 1
+      services: 
+      $MIDDLEWARE_SERVICES
+      skip_task: false
+      tag: latest
+      task_run_condition: null
+      task_type: BUILD
+      no_cache: false
+  - approval: false
+    continue_on_disapproval: false
+    name: deploy
+    order: 2
+    send_mail: true
+    tasks:
+    - application_env: pre-prod
+      job_code: null
+      mark_success_upon_skip: false
+      name: job_1
+      on_failure_exit: true
+      on_success_exit: false
+      order: 1
+      services: 
+      "$SERVICES"
+      skip_task: false
+      tag: latest
+      task_run_condition: null
+      task_type: BUILD
+      no_cache: false
+    - application_env: pre-prod
+      job_code: null
+      mark_success_upon_skip: false
+      name: job_2
+      on_failure_exit: true
+      on_success_exit: false
+      order: 2
+      services: 
+      "$SERVICES"
+      skip_task: false
+      tag: generated
+      task_run_condition: null
+      task_type: DEPLOY
+  trigger_type: Manual
+  version: v2
+version: api/v1
