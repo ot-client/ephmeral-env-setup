@@ -1,0 +1,17 @@
+---
+version: api/v1
+kind: BPNamespace
+metadata:
+  name: aqualensaaaa1111111111111
+  cluster_name: preprod-eks-1-30
+spec:
+  registries:
+    - nexus
+  registries_response: []
+  network_policy_enable: true
+  requests_memory_quota: 1Gi
+  requests_cpu_quota: 1
+  limits_cpu_quota: 1
+  limits_memory_quota: 1Gi
+  annotations: []
+  labels: []
