@@ -1,0 +1,65 @@
+kind: BPMetadata
+metadata:
+  name: metadata_config
+spec:
+  namespace: aqualens
+  applications:
+    - name: payments
+      ephemeral_source_env:
+        name: "pre-prod"
+      services:
+        - name: payment-gateway
+          type: service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env
+            build:
+              branch_name: master-payment-gateway
+            deploy:
+              replicas: 2
+        - name: orders
+          type: service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env        
+            build:
+              branch_name: master-orders
+            deploy:
+              replicas: 3
+    - name: web-logic
+      ephemeral_source_env:
+        name: "pre-prod"
+      services:
+        - name: frontend
+          type: service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env          
+            build:
+              branch_name:  master-frontend
+            deploy:
+              replicas: 2
+        - name: payment-ui
+          type: service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env    
+            build:
+              branch_name: master-payment-ui
+            deploy:
+              replicas: 3
+        - name: redis
+          type: middleware_service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env
+            deploy:
+              repo_url: redis-latest
+        - name: mysql
+          type: middleware_service
+          config:
+            service_env:
+              image: registry.company.com/payments/payment-gateway/ephemeral-env        
+            deploy:
+              repo_url: mysql-latest
+
