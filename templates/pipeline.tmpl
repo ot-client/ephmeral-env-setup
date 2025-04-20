@@ -21,8 +21,7 @@ spec:
       on_failure_exit: true
       on_success_exit: false
       order: 1
-      services: 
-      $MIDDLEWARE_SERVICES
+      services: [$MIDDLEWARE_SERVICES]
       skip_task: false
       tag: latest
       task_run_condition: null
@@ -41,8 +40,7 @@ spec:
       on_failure_exit: true
       on_success_exit: false
       order: 1
-      services: 
-      "$SERVICES"
+      services: [$SERVICES]
       skip_task: false
       tag: latest
       task_run_condition: null
@@ -55,8 +53,7 @@ spec:
       on_failure_exit: true
       on_success_exit: false
       order: 2
-      services: 
-      "$SERVICES"
+      services: [$SERVICES]
       skip_task: false
       tag: generated
       task_run_condition: null
