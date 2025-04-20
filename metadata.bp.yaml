@@ -48,7 +48,7 @@ spec:
               branch_name: master-payment-ui
             deploy:
               replicas: 3
-        - name: redis
+        - name: redis-v2
           type: middleware_service
           config:
             service_env:
