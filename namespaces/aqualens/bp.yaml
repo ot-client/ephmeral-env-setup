@@ -6,7 +6,7 @@ metadata:
   cluster_name: ot-aws-cluster
 spec:
   registries:
-    - nexus
+    - bp
   registries_response: []
   network_policy_enable: true
   requests_memory_quota: 1Gi
