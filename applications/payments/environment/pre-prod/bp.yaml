@@ -2,13 +2,13 @@ kind: BPApplicationEnv
 metadata:
   name: pre-prod
 spec:
-  application: aqualens
-  cluster: preprod-eks-1-30
+  application: payments
+  cluster: ot-aws-cluster
   environment_master: staging
   manual_build: true
   manual_deploy: true
-  namespace: aqualens
+  namespace: dev
   registries:
-  - nexus
+  - bp
   vm_groups: []
 version: api/v1

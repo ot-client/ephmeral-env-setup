@@ -1,7 +1,7 @@
 version: api/v1
 kind: BPConfigmap
 metadata:
-  name: aqualens-b2b-pre-prod
+  name: payment-gateway-pre-prod
 spec:
     is_deploy : False
     manifest_meta_data:
@@ -12,9 +12,9 @@ spec:
       manifest_git_repo_branch: master
     application_env_namespace:
         application_env:
-            application: aqualens
-            environment_master: dev
+            application: payments
+            environment_master: staging
             name: pre-prod
         namespace:
             cluster: ot-aws-cluster
-            name: qa
+            name: dev

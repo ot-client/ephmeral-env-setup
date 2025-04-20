@@ -1,9 +1,0 @@
-kind: BPService
-metadata:
-  name: aqualens-b2b
-spec:
-  application: aqualens
-  build_strategy: EVERY
-  external_name: aqualens-b2b
-  type: MICROSERVICE
-version: api/v1

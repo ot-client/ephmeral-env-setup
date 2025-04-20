@@ -1,11 +1,11 @@
 kind: BPServiceCD
 metadata:
-  application: aqualens
+  application: payments
   environment_master: staging
-  service: aqualens-b2b
+  service: orders
 spec:
   application_env: pre-prod
-  deployment_name: aqualens-b2b
+  deployment_name: orders
   deployment_rollback_validation: true
   env_cd_deploy_variable:
   - env_key: image.tag
@@ -25,5 +25,5 @@ spec:
     strategy: HELM_GIT_VALUES_FILE
     value_file_paths:
     -  helm-salary/values.yaml
-  service_name: aqualens-b2b
+  service_name: orders
 version: api/v1

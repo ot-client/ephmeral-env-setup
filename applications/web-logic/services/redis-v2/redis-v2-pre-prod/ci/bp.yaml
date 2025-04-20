@@ -1,15 +1,15 @@
 kind: BPServiceCI
 metadata:
-  application: aqualens
+  application: web-logic
   environment_master: staging
-  service: aqualens-b2b
+  service: redis-v2
 spec:
   application_env: pre-prod
   branch_name: master
   dockerfile_path: Dockerfile:.
   env_ci_build_variable:
-  - env_key: SVC
-    env_value: aqualens-b2b
+    - env_key: SVC
+      env_value: redis-v2
   git_repo: ot-micro-salary
   language: PHP
 version: api/v1

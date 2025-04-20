@@ -1,29 +1,29 @@
 kind: BPServiceCD
 metadata:
-  application: aqualens
+  application: web-logic
   environment_master: staging
-  service: aqualens-b2b
+  service: mysql
 spec:
   application_env: pre-prod
-  deployment_name: aqualens-b2b
+  deployment_name: mysql
   deployment_rollback_validation: true
   env_cd_deploy_variable:
-  - env_key: image.tag
-    env_value: ${BP_IMAGE_TAG}
-  - env_key: image.url
-    env_value: ${BP_IMAGE_URI}
-  - env_key: namespace
-    env_value: ${BP_NAMESPACE} 
+    - env_key: image.tag
+      env_value: ${BP_IMAGE_TAG}
+    - env_key: image.url
+      env_value: ${BP_IMAGE_URI}
+    - env_key: namespace
+      env_value: ${BP_NAMESPACE}
   manifest_meta_data:
     helm_file_paths:
-    - helm-salary/
+      - helm-salary/
     helm_git_repo: ot-micro-salary
     helm_git_repo_branch: helm-chart
-    helm_release_name: helm-salary 
+    helm_release_name: helm-salary
     helm_value_repo: ot-micro-salary
     helm_value_repo_branch: helm-chart
     strategy: HELM_GIT_VALUES_FILE
     value_file_paths:
-    -  helm-salary/values.yaml
-  service_name: aqualens-b2b
+      - helm-salary/values.yaml
+  service_name: mysql
 version: api/v1

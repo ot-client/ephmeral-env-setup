@@ -1,15 +1,15 @@
 kind: BPServiceCI
 metadata:
-  application: aqualens
+  application: payments
   environment_master: staging
-  service: aqualens-b2b
+  service: payment-gateway
 spec:
   application_env: pre-prod
   branch_name: master
   dockerfile_path: Dockerfile:.
   env_ci_build_variable:
   - env_key: SVC
-    env_value: aqualens-b2b
+    env_value: payment-gateway
   git_repo: ot-micro-salary
   language: PHP
 version: api/v1

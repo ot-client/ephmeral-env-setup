@@ -1,7 +1,7 @@
 version: api/v1
 kind: BPConfigmap
 metadata:
-  name: frontend-pre-prod
+  name: redis-v2-pre-prod
 spec:
   is_deploy: False
   manifest_meta_data:
