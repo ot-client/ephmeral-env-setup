@@ -3,7 +3,7 @@ version: api/v1
 kind: BPNamespace
 metadata:
   name: aqualensaaaa1111111111111
-  cluster_name: preprod-eks-1-30
+  cluster_name: ot-aws-cluster
 spec:
   registries:
     - nexus
