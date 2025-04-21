@@ -12,7 +12,7 @@ spec:
           type: service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env
+              image: payment-gateway/ephemeral-env
             build:
               branch_name: master-payment-gateway
             deploy:
@@ -21,7 +21,7 @@ spec:
           type: service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env        
+              image: orders/ephemeral-env        
             build:
               branch_name: master-orders
             deploy:
@@ -34,7 +34,7 @@ spec:
           type: service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env          
+              image: frontend/ephemeral-env          
             build:
               branch_name:  master-frontend
             deploy:
@@ -43,7 +43,7 @@ spec:
           type: service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env    
+              image: payment-ui/ephemeral-env    
             build:
               branch_name: master-payment-ui
             deploy:
@@ -52,14 +52,14 @@ spec:
           type: middleware_service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env
+              image: redis-v2/ephemeral-env
             deploy:
               repo_url: redis-latest
         - name: mysql
           type: middleware_service
           config:
             service_env:
-              image: registry.company.com/payments/payment-gateway/ephemeral-env        
+              image: mysql/ephemeral-env        
             deploy:
               repo_url: mysql-latest
 
