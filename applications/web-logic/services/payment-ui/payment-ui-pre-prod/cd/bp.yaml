@@ -7,23 +7,33 @@ spec:
   application_env: pre-prod
   deployment_name: payment-ui
   deployment_rollback_validation: true
-  env_cd_deploy_variable:
-    - env_key: image.tag
-      env_value: ${BP_IMAGE_TAG}
-    - env_key: image.url
-      env_value: ${BP_IMAGE_URI}
-    - env_key: namespace
-      env_value: ${BP_NAMESPACE}
-  manifest_meta_data:
-    helm_file_paths:
-      - helm-salary/
-    helm_git_repo: ot-micro-salary
-    helm_git_repo_branch: helm-chart
-    helm_release_name: helm-salary
-    helm_value_repo: ot-micro-salary
-    helm_value_repo_branch: helm-chart
-    strategy: HELM_GIT_VALUES_FILE
-    value_file_paths:
-      - helm-salary/values.yaml
+  image_pull_policy: "Always"
+  desired_replication: 1
+  requests_memory_quota: 100
+  requests_cpu_quota: 100
+  limits_cpu_quota: 100
+  limits_memory_quota: 100
+  env_cd_configmap: [ ]
+  env_cd_secret: [ ]
+  env_cd_pvc_variable: [ ]
+  entrypoint:
+  env_cd_deploy_variable: [ ]
+  env_cd_deployment_strategy:
+    max_surge: 100%
+    max_unavailable: 5%
+    minimum_ready: 0
+    progress_deadline: 600
+    termination_grace_period: 30
+    revision_history_limit: 10
+    release_template:
+  labels: [ ]
+  annotations: [ ]
+  env_cd_hook: [ ]
+  env_cd_access_detail:
+    - name: ot-emp-ui
+      target_port: 8080
+      protocol: TCP
+      port: 8080
+      access_level: PRIVATE
   service_name: payment-ui
 version: api/v1
