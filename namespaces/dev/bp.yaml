@@ -2,7 +2,7 @@
 version: api/v1
 kind: BPNamespace
 metadata:
-  name: aqualensaaaa1111111111111
+  name: dev
   cluster_name: ot-aws-cluster
 spec:
   registries:

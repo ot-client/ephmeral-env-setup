@@ -2,7 +2,7 @@ kind: BPMetadata
 metadata:
   name: metadata_config
 spec:
-  namespace: aqualens
+  namespace: dev
   applications:
     - name: payments
       ephemeral_source_env:
