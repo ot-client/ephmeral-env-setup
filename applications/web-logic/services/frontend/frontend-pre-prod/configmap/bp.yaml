@@ -7,9 +7,9 @@ spec:
   manifest_meta_data:
     strategy: GIT_MANIFEST
     manifest_file_paths:
-      - "."
-    manifest_git_repo: okts-redis
-    manifest_git_repo_branch: master
+      - "./configmap/frontend-pre-prod"
+    manifest_git_repo: ot-micro-salary
+    manifest_git_repo_branch: helm-chart
   application_env_namespace:
     application_env:
       application: web-logic
