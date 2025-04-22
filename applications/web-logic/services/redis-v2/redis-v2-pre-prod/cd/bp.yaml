@@ -6,6 +6,8 @@ metadata:
 spec:
   application_env: pre-prod
   deployment_name: redis-v2
+  deployment_names: 
+  - redis-v2
   deployment_rollback_validation: true
   env_cd_deploy_variable:
     - env_key: image.tag
@@ -14,6 +16,8 @@ spec:
       env_value: ${BP_IMAGE_URI}
     - env_key: namespace
       env_value: ${BP_NAMESPACE}
+    - env_key: name
+      env_value: redis-v2
   manifest_meta_data:
     helm_file_paths:
       - helm-salary/
