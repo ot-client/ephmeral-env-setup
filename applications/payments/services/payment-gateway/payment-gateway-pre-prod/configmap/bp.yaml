@@ -7,7 +7,7 @@ spec:
   manifest_meta_data:
     strategy: GIT_MANIFEST
     manifest_file_paths:
-      - "./configmap/payment-gateway-pre-prod"
+      - "./configmap/payment-gateway-pre-prod.yaml"
     manifest_git_repo: ot-micro-salary
     manifest_git_repo_branch: helm-chart
   application_env_namespace:
