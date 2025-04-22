@@ -3,7 +3,7 @@ kind: BPConfigmap
 metadata:
   name: payment-ui-pre-prod
 spec:
-  is_deploy: False
+  is_deploy: True
   manifest_meta_data:
     strategy: GIT_MANIFEST
     manifest_file_paths:
