@@ -13,7 +13,9 @@ spec:
   requests_cpu_quota: 100
   limits_cpu_quota: 100
   limits_memory_quota: 100
-  env_cd_configmap: [ ]
+  env_cd_configmap: 
+  - name: frontend-pre-prod
+    mount_path: "/etc/config"
   env_cd_secret: [ ]
   env_cd_pvc_variable: [ ]
   entrypoint:
