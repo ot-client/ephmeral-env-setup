@@ -4,26 +4,44 @@ metadata:
 spec:
   namespace: dev
   applications:
-    - name: payments
+    - name: jpmc-ms
       ephemeral_source_env:
-        name: "pre-prod"
+        name: "dev"
       services:
-        - name: payment-gateway
+        - name: jpmc-login
           type: service
           config:
             service_env:
-              image: payment-gateway/ephemeral-env
+              image: dev/dev/jpmc-login
             build:
-              branch_name: master-payment-gateway
+              branch_name: main
             deploy:
               replicas: 2
-        - name: orders
+        - name: jpmc-python-app
           type: service
           config:
             service_env:
-              image: orders/ephemeral-env        
+              image: dev/dev/jpmc-python-app        
             build:
-              branch_name: master-orders
+              branch_name: main
+            deploy:
+              replicas: 3
+        - name: jpmc-python-app
+          type: service
+          config:
+            service_env:
+              image: dev/dev/jpmc-python-app        
+            build:
+              branch_name: main
+            deploy:
+              replicas: 3
+        - name: jpmc-salary
+          type: service
+          config:
+            service_env:
+              image: dev/dev/jpmc-salary        
+            build:
+              branch_name: main
             deploy:
               replicas: 3
     - name: web-logic
@@ -34,7 +52,7 @@ spec:
           type: service
           config:
             service_env:
-              image: frontend/ephemeral-env          
+              image: dev/dev/frontend          
             build:
               branch_name:  master-frontend
             deploy:
@@ -43,7 +61,7 @@ spec:
           type: service
           config:
             service_env:
-              image: payment-ui/ephemeral-env    
+              image: dev/dev/payment-ui    
             build:
               branch_name: master-payment-ui
             deploy:
@@ -52,14 +70,14 @@ spec:
           type: middleware_service
           config:
             service_env:
-              image: redis-v2/ephemeral-env
+              image: dev/dev/redis-v2
             deploy:
               repo_url: redis-latest
         - name: mysql
           type: middleware_service
           config:
             service_env:
-              image: mysql/ephemeral-env        
+              image: dev/dev/mysql        
             deploy:
               repo_url: mysql-latest
 
