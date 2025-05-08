@@ -1,0 +1,14 @@
+kind: BPServiceEnv
+metadata:
+  application: jpmc-ms
+  service: jpmc-login
+spec:
+  application_env: dev
+  application_job_template: jpmc-ms-v2
+  environment_master: dev
+  manual_build: true
+  manual_deploy: true
+  env_role_access: []
+  image_name: dev/dev/jpmc-login
+  registry: bp
+version: api/v1
