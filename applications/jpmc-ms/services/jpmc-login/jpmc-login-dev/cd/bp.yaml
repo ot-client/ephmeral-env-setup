@@ -1,0 +1,51 @@
+kind: BPServiceCD
+metadata:
+  application: jpmc-ms
+  environment_master: dev
+  service: jpmc-login
+spec:
+  application_env: dev
+  deployment_name: jpmc-login
+  deployment_names:
+  - jpmc-login
+  deployment_rollback_validation: true
+  image_pull_policy: "Always"
+  desired_replication: 1
+  requests_memory_quota: 100
+  requests_cpu_quota: 100
+  limits_cpu_quota: 100
+  limits_memory_quota: 100
+  env_cd_readiness_probe:
+    path: "/test/healthCheck"
+    port: 8093
+    initial_delay_seconds: 30
+    period_seconds: 5
+    timeout_seconds: 10
+    failure_threshold: 5
+    probe_type: HTTP
+  env_cd_configmap: 
+  - name: jpmc-login-dev
+    mount_path: "/etc/config"
+  env_cd_secret: [ ]
+  env_cd_pvc_variable: [ ]
+  entrypoint:
+  env_cd_deploy_variable: [ ]
+  env_cd_deployment_strategy:
+    max_surge: 100%
+    max_unavailable: 5%
+    minimum_ready: 0
+    progress_deadline: 600
+    termination_grace_period: 30
+    revision_history_limit: 10
+    release_template:
+  labels: [ ]
+  annotations: [ ]
+  env_cd_hook: [ ]
+  env_cd_access_detail:
+    - name: jpmc-login-dev
+      target_port: 8080
+      protocol: TCP
+      port: 8080
+      access_level: PRIVATE
+  service_name: jpmc-login
+version: api/v1

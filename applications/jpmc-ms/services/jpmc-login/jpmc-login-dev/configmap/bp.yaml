@@ -1,0 +1,20 @@
+version: api/v1
+kind: BPConfigmap
+metadata:
+  name: jpmc-login-dev
+spec:
+  is_deploy: True
+  manifest_meta_data:
+    strategy: GIT_MANIFEST
+    manifest_file_paths:
+      - "configmap/jpmc-login-dev.yaml"
+    manifest_git_repo: ot-micro-salary
+    manifest_git_repo_branch: helm-chart
+  application_env_namespace:
+    application_env:
+      application: jpmc-ms
+      environment_master: dev
+      name: dev
+    namespace:
+      cluster: ot-aws-cluster
+      name: demo-dev

@@ -1,0 +1,14 @@
+kind: BPApplicationEnv
+metadata:
+  name: dev
+spec:
+  application: jpmc-ms
+  cluster: ot-aws-cluster
+  environment_master: dev
+  manual_build: true
+  manual_deploy: true
+  namespace: demo-dev
+  registries:
+  - bp
+  vm_groups: []
+version: api/v1
