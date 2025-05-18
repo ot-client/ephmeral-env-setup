@@ -1,21 +1,18 @@
 ---
-- name: "test-cluster"
-  current_cluster_version: "1.31" 
-  target_version: "1.32"
+- name: "eks-cluster"
+  current_cluster_version: "1.28" 
+  target_version: "1.29"
   cluster_backup_taken: "yes" 
   region: "us-east-1"
   node_pools:
-    - nodegroup-2
-    - nodegroup-1
+    - app-NG
   kubeconfig_secret: aws-kubeconfig
   slack_channel: jenkins
   add_ons:
     - name: vpc-cni
       namespace: kube-system
-      version: v1.19.4-eksbuild.1
+      version: v1.19.0-eksbuild.1
     - name: coredns
       namespace: kube-system
-      version: v1.11.4-eksbuild.2
-    - name: kube-proxy
-      namespace: kube-system
-      version: v1.31.2-eksbuild.3
+      version: v1.10.1-eksbuild.4
+
