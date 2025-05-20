@@ -4,13 +4,12 @@ metadata:
   environment_master: staging
   service: orders
 spec:
-  - application_env: pre-prod
-    branch_name: master
-    dockerfile_path: Dockerfile:.
-    env_ci_build_variable:
-      - env_key: SVC
-        env_value: orders
-    git_repo: ot-micro-salary
-    language: PHP
-    type_label: null
+  application_env: pre-prod
+  branch_name: master
+  dockerfile_path: Dockerfile:.
+  env_ci_build_variable:
+  - env_key: SVC
+    env_value: orders
+  git_repo: ot-micro-salary
+  language: PHP
 version: api/v1
