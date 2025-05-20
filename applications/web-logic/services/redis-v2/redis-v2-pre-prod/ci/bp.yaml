@@ -4,12 +4,13 @@ metadata:
   environment_master: staging
   service: redis-v2
 spec:
-  application_env: pre-prod
-  branch_name: master
-  dockerfile_path: Dockerfile:.
-  env_ci_build_variable:
-    - env_key: SVC
-      env_value: redis-v2
-  git_repo: ot-micro-salary
-  language: PHP
+  - application_env: pre-prod
+    branch_name: master
+    dockerfile_path: Dockerfile:.
+    env_ci_build_variable:
+      - env_key: SVC
+        env_value: redis-v2
+    git_repo: ot-micro-salary
+    language: PHP
+    type_label: null
 version: api/v1

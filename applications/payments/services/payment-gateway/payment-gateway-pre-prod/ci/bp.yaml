@@ -4,12 +4,13 @@ metadata:
   environment_master: staging
   service: payment-gateway
 spec:
-  application_env: pre-prod
-  branch_name: master
-  dockerfile_path: Dockerfile:.
-  env_ci_build_variable:
-  - env_key: SVC
-    env_value: payment-gateway
-  git_repo: ot-micro-salary
-  language: PHP
+  - application_env: pre-prod
+    branch_name: master
+    dockerfile_path: Dockerfile:.
+    env_ci_build_variable:
+      - env_key: SVC
+        env_value: payment-gateway
+    git_repo: ot-micro-salary
+    language: PHP
+    type_label: null
 version: api/v1
