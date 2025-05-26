@@ -55,5 +55,3 @@ spec:
               image: redis-v2/ephemeral-env
             deploy:
               repo_url: redis-latest
-
-
