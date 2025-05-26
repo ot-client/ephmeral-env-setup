@@ -62,3 +62,4 @@ spec:
               image: mysql/ephemeral-env        
             deploy:
               repo_url: mysql-latest
+
