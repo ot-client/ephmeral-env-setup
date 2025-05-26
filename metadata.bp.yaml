@@ -48,18 +48,5 @@ spec:
               branch_name: master-payment-ui
             deploy:
               replicas: 3
-        - name: redis-v2
-          type: middleware_service
-          config:
-            service_env:
-              image: redis-v2/ephemeral-env
-            deploy:
-              repo_url: redis-latest
-        - name: mysql
-          type: middleware_service
-          config:
-            service_env:
-              image: mysql/ephemeral-env        
-            deploy:
-              repo_url: mysql-latest
+
 
