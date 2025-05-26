@@ -55,10 +55,4 @@ spec:
               image: redis-v2/ephemeral-env
             deploy:
               repo_url: redis-latest
-        - name: mysql
-          type: middleware_service
-          config:
-            service_env:
-              image: mysql/ephemeral-env        
-            deploy:
-              repo_url: mysql-latest
+
