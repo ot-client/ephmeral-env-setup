@@ -8,15 +8,15 @@ spec:
       ephemeral_source_env:
         name: "pre-prod"
       services:
-        - name: orders
+        - name: payment-gateway
           type: service
           config:
             service_env:
-              image: orders/ephemeral-env        
+              image: payment-gateway/ephemeral-env
             build:
-              branch_name: master-orders
+              branch_name: master-payment-gateway
             deploy:
-              replicas: 3
+              replicas: 2
     - name: web-logic
       ephemeral_source_env:
         name: "pre-prod"
@@ -30,5 +30,10 @@ spec:
               branch_name: master-payment-ui
             deploy:
               replicas: 3
-
-
+        - name: redis-v2
+          type: middleware_service
+          config:
+            service_env:
+              image: redis-v2/ephemeral-env
+            deploy:
+              repo_url: redis-latest
