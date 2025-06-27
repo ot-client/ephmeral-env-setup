@@ -8,15 +8,6 @@ spec:
       ephemeral_source_env:
         name: "pre-prod"
       services:
-        - name: payment-gateway
-          type: service
-          config:
-            service_env:
-              image: payment-gateway/ephemeral-env
-            build:
-              branch_name: master-payment-gateway
-            deploy:
-              replicas: 2
         - name: orders
           type: service
           config:
@@ -30,15 +21,6 @@ spec:
       ephemeral_source_env:
         name: "pre-prod"
       services:
-        - name: frontend
-          type: service
-          config:
-            service_env:
-              image: frontend/ephemeral-env          
-            build:
-              branch_name:  master-frontend
-            deploy:
-              replicas: 2
         - name: payment-ui
           type: service
           config:
