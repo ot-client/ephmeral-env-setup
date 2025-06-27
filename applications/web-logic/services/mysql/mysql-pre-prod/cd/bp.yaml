@@ -18,6 +18,8 @@ spec:
       env_value: ${BP_NAMESPACE}
     - env_key: name
       env_value: mysql
+    - env_key: service.name
+      env_value: mysql
   manifest_meta_data:
     helm_file_paths:
       - helm-salary/
